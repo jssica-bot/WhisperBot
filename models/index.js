@@ -7,7 +7,6 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 10000;
 
-// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -35,7 +34,7 @@ const bookingSchema = new mongoose.Schema({
 });
 const Booking = mongoose.model('Booking', bookingSchema);
 
-// API endpoint
+// API route
 app.post('/api/book', async (req, res) => {
   try {
     const booking = new Booking(req.body);
@@ -48,7 +47,7 @@ app.post('/api/book', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('WhisperBot booking backend is live 🚀');
+  res.send('📡 Booking backend is live');
 });
 
 app.listen(port, () => {
